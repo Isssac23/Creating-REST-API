@@ -2,15 +2,9 @@ import json, requests
 from flask import Flask, request, jsonify
 app = Flask(__name__)
 
-#The initial user data which is being inputted to the API
-users_list = [
-    {
-        "id": 0,
-        "name": "Is-haaq Omar",
-        "age": "23",
-        "DOB": "10 aprill 2000",
-    },
-]
+#User data which is being inputted from a JSON file to the API
+with open('data.json') as json_file:
+    users_list = json.load(json_file)
 
 #Displaying default text on API
 @app.route("/")
